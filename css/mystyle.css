@@ -58,7 +58,45 @@
 
     /*------------------------*/
 
-    .menu h2 {
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 2em;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    @media (max-width: 700px) {
+        #main-menu {
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0;
+            margin: 0;
+        }
+        #main-menu.show {
+            display: flex;
+        }
+        .menu-toggle {
+            display: inline-block;
+        }
+        #main-menu li.separator {
+            display: none;
+        }
+        #main-menu li {
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+    }
+
+    .menu {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -105,6 +143,7 @@
     /*------------------------*/
 
     .home_container {
+        position: relative;
         display: block;
         background: #ffffff2e;
         height: fit-content;
@@ -414,6 +453,10 @@
 
     /*------------------------*/
     
+    .form_container {
+        position: relative;
+    }
+
     .contact_form {
         background: url('../imgs/misc/grunge-paper-background.jpg') no-repeat center center, #cbbfaef1;
         background-size: cover, cover;
@@ -690,6 +733,144 @@
 
     /*------------------------*/
 
+    .deco {
+        position: absolute;
+        z-index: 9999;
+        pointer-events: none;
+        animation: floaty 6s ease-in-out infinite;
+        opacity: 1;
+    }
+
+    @keyframes floaty {
+        0% {
+            transform: translateY(0) rotate(-5deg);
+        }
+        50% {
+            transform: translateY(-5px) rotate(5deg);
+        }
+        100% {
+            transform: translateY(0) rotate(-5deg);
+        }
+    }
+
+    @keyframes idleSway {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: -768px 0;
+        }
+    }
+
+    @keyframes hitBounce {
+        from {
+            background-position: 0 -192px;
+        }
+        to {
+            background-position: -384px -192px;
+        }
+    }
+
+    #tree-1 {
+        bottom: 20px;
+        right: 10px;
+        width: 500px;
+        height: auto;
+    }
+
+    #treeInt-1 {
+        pointer-events: all;
+        cursor: pointer;
+        bottom: 200px;
+        right: 120px;
+        width: 192px;
+        height: 192px;
+        transform: scale(-2, 2);
+        background: url('../imgs/misc/sprites/Tree.png') no-repeat;
+        background-position: 0 0;
+        animation: idleSway 1s steps(4) infinite;
+    }
+
+    #treeInt-1.hit, #treeInt-2.hit {
+        animation: hitBounce 0.3s steps(2) forwards;
+    }
+
+    #treeInt-2 {
+        pointer-events: all;
+        cursor: pointer;
+        bottom: 200px;
+        left: 120px;
+        width: 192px;
+        height: 192px;
+        transform: scale(2);
+        background: url('../imgs/misc/sprites/Tree.png') no-repeat;
+        background-position: 0 0;
+        animation: idleSway 1s steps(4) infinite;
+    }
+
+    #mushroom-1 {
+        bottom: 60px;
+        right: 350px;
+        width: 100px;
+        height: auto;
+        animation-delay: 1s;
+    }
+
+    #mushroom-2 {
+        bottom: 10px;
+        right: 100px;
+        width: 150px;
+        height: auto;
+    }
+
+    #mushroom-3 {
+        bottom: 5px;
+        left: 100px;
+        width: 100px;
+        height: auto;
+        animation-delay: 1s;
+    }
+
+    #liana-1 {
+        top: 17px;
+        left: 20px;
+        width: 220px;
+        height: auto;
+        animation: none;
+    }
+
+    #liana-2 {
+        top: 60px;
+        right: -15px;
+        width: 220px;
+        transform: scale(-1, 1);
+        height: auto;
+        animation: none;
+    }
+
+    @media (max-width: 1500px) {
+        #tree-1 {
+            right: -250px;
+        }
+        #treeInt-1 {
+            right: -150px;
+        }
+        #treeInt-2 {
+            left: -150px;
+        }
+        #mushroom-1 {
+            right: 0;
+            left: 70px;
+        }
+        #mushroom-2 {
+            right: 5px;
+        }
+        #mushroom-3 {
+            left: 5px;
+        }
+    }
+
+    /*------------------------*/
     .footer {
         display: flex;
         flex-direction: column;
