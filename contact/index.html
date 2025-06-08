@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact Me</title>
 <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
 </head>
 <body>
     <a name="Top"></a>
     <div class="menu">
-    <h2>
         <div class="logo">
         <img src="../imgs/misc/PlaceholderLogo.png" alt="Logo-Placeholder" width="85px">
         <a href="../index.html">MV's Atelier</a>
         </div>
-        <ul>
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+        <ul id="main-menu">
             <li><a href="../index.html">Home</a></li>
-            <li> | </li>
+            <li class="separator"> | </li>
             <li><a href="../gallery/index.html">Gallery</a></li>
-            <li> | </li>
+            <li class="separator"> | </li>
             <li><a href="index.html">Contact</a></li>
-            <li> | </li>
+            <li class="separator"> | </li>
             <li><a href="../about/index.html">About</a></li>
         </ul>
-    </h2>
     </div>
     <br>
     <div class="commission_board">
@@ -91,9 +91,10 @@
     <br>
     <p>Hey, thanks for reaching out! I'll get in touch with you using the address provided below as soon as possible. Make sure to check my commission info and read my Terms of Service, be as detailed as you want in your request! While you wait ever so patiently for my reply, feel free to browse my <a href="../gallery/index.html">Gallery</a> for more examples of my work.</p>
     <br>
+    <div class="form_container">
     <div class="contact_form">
         <h2>~ Contract ~</h2>
-        <form>
+        <form onsubmit="alert('Your message has been sent! I will get back to you as soon as possible.');">
             <div class="form-group">
                 <p>
                     <label for="name"><strong>X</strong></label>
@@ -169,6 +170,9 @@
             <input type="submit" value="Send Owl">
         </form>
     </div>
+    <div class="deco" id="treeInt-1"></div>
+    <div class="deco" id="treeInt-2"></div>
+    </div>
     <p><a href="#Top">Back to Top</a></p>
     <hr>
     <div class="footer">
@@ -184,4 +188,25 @@
         </ul>
         <a name="Bottom"></a>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.getElementById('main-menu').classList.toggle('show');
+            });
+        });
+    </script>
+    <script>
+        const trees = document.querySelectorAll('#treeInt-1, #treeInt-2');
+        trees.forEach(tree => {
+            tree.addEventListener('click', () => {
+                tree.classList.remove('hit');
+                void tree.offsetWidth;
+                tree.classList.add('hit');
+                setTimeout(() => {
+                    tree.classList.remove('hit');
+                }, 300);
+            });
+        });
+    </script>
 </body>
+</html>
