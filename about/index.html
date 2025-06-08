@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About</title>
 <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
 </head>
 <body>
     <a name="Top"></a>
     <div class="menu">
-    <h2>
         <div class="logo">
         <img src="../imgs/misc/PlaceholderLogo.png" alt="Logo-Placeholder" width="85px">
         <a href="../index.html">MV's Atelier</a>
         </div>
-        <ul>
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+        <ul id="main-menu">
             <li><a href="../index.html">Home</a></li>
-            <li> | </li>
+            <li class="separator"> | </li>
             <li><a href="../gallery/index.html">Gallery</a></li>
-            <li> | </li>
+            <li class="separator"> | </li>
             <li><a href="../contact/index.html">Contact</a></li>
-            <li> | </li>
+            <li class="separator"> | </li>
             <li><a href="index.html">About</a></li>
         </ul>
-    </h2>
     </div>
     <br>
     <div class="about_container">
@@ -34,7 +34,7 @@
             <br><br>My journey into the world of art began at a young age, and I've been honing my skills ever since. I attended a Special Effects school, where I leared that not everything is what it seems, and sometimes art is all about lying to the camera. My teachers there really helped losen up my structered approach, and I learned to embrace the chaos of creativity.
             <br>I also took a 3D printing course, which opened up a whole new world of possibilities for me. Now, I'm currently studying Digital Animation at Universidad de Belgrano, where I'm diving even deeper into the world of animation and storytelling. I'm being taught not only the technical aspects of animation, but also everything that goes around it, such as Graphic Design, Motion Graphics, and even Videogame-oriented Programming. Heck, building this website was part of my assignments!
             <br><br>When I'm not busy creating, you can find me exploring the world of tabletop games, where I draw inspiration from the characters and stories that unfold around the table. I love to create characters that feel alive and relatable, and I hope to bring that same energy to my work.
-            <br><br>Thank you for stopping by my little corner of the internet! I hope you enjoy exploring my work as much as I enjoyed creating it. If you have any questions, comments, or just want to chat about art, feel free to <a href="#Bottom">reach out</a>!
+            <br><br>Thank you for stopping by my little corner of the internet! I hope you enjoy exploring my work as much as I enjoyed creating it. If you have any questions, comments, or just want to chat about art, feel free to <a href="https://www.instagram.com/indoor_weirdo?igsh=MXc4MjhvdTkyaWwyaA%3D%3D&utm_source=qr">reach out</a>!
             </p>
         </div>
         <div class="journey_container">
@@ -281,5 +281,12 @@
         </ul>
         <a name="Bottom"></a>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.getElementById('main-menu').classList.toggle('show');
+            });
+        });
+    </script>
 </body>
 </html>
